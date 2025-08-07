@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+    <title>DOM</title>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1 id="heading">Welcome</h1>
+
+<p>Hello how are you? Hope you are doing well!!!</p>
+
+</header>
+
+<p>lets create a dip of sauces.</p>
+
+</body>
+
+
+<script>
+
+let div= document.createElement("div");
+div.id="paragraph";
+
+div.classname = "alert";
+
+    div.innerHTML = "This is a paragraph inside a div.";
+
+document.body.append(div); 
+
+let heading = document.getElementById("heading");
+ heading.innerHTML ="&#128512";
+
+document.querySelector("header").innerHTML = "<strong>Welcome to DOM</strong>";
+
+</script>
+
+</html>
