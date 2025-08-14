@@ -1,4 +1,8 @@
 
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -19,39 +23,94 @@
             margin-top: 12px;
             margin-bottom: 15px;
         }
+
+        #secretMessage {
+            display: none;
+            color: red;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        #whisperMessage {
+            margin-top: 10px;
+            color: gray;
+            font-style: italic;
+        }
     </style>
 </head>
 
 <body>
     <h1>The Basement</h1>
-    <p id="story">The house had been silent for hours, except for the occasional groan of aging wood and the distant rumble of thunder
-    outside. I hadn’t meant to go down there—not tonight. But something felt off. The air upstairs had grown heavy, like the
-    walls were holding their breath.
-    
-    I gripped the flashlight tighter, its plastic casing slick in my sweaty palm, and stepped onto the basement stairs. Each
-    creaking board beneath me sounded louder than the last, echoing into the shadows below. The deeper I went, the colder it
-    got. Not just chilly—unnatural. Like the kind of cold that clings to your bones and whispers secrets you don’t want to
-    hear.
-    
-    The beam of light danced across the cluttered basement—old furniture, broken boxes, a rusted bicycle. I called out
-    softly, “Aarav?” My voice barely made it past my lips. No answer.</p>
+    <p id="story">The house had been silent for hours, except for the occasional groan of aging wood and the distant
+        rumble of thunder
+        outside. I hadn’t meant to go down there—not tonight. But something felt off. The air upstairs had grown heavy,
+        like the
+        walls were holding their breath.
+
+        I gripped the flashlight tighter, its plastic casing slick in my sweaty palm, and stepped onto the basement
+        stairs. Each
+        creaking board beneath me sounded louder than the last, echoing into the shadows below. The deeper I went, the
+        colder it
+        got. Not just chilly—unnatural. Like the kind of cold that clings to your bones and whispers secrets you don’t
+        want to
+        hear.I was actually looking for my younger brother, Aarav, who had been playing hide and seek with me earlier. 
+
+        The beam of light danced across the cluttered basement—old furniture, broken boxes, a rusted bicycle. I called
+        out
+        softly, “Aarav?” My voice barely made it past my lips. No answer.</p>
+
     <button onclick="goDark()">Get In The Mood</button>
+    <button onclick="resetMood()">Reset the Mood</button>
+    <button onclick="flickerLights()">Flicker the Lights</button>
+    <button onclick="revealSecret()">Get ready for the rest with a scary quote </button>
+    <button 
+
     <div class="textEntry">Type your name here, if you dare: <input type="text" id="name"></div>
     <button onclick="typeAndScream()">Please, Please Don't Click Me</button>
     <button onclick="finishTheStory()">Tell Me What Happened!</button>
-    <!--     <audio id="audio" src="http://reboot-me.com/ouch.mp3" type="audio/mpeg"></audio> -->
+
+    <p id="secretMessage"></p>
+    
+
     <script>
         function typeAndScream() {
-            // Uncomment the commented codes to use the audio 
             // document.getElementById("audio").play();
             var personName = document.getElementById("name").value;
-            alert("I told you not to do that,im coming for you,AHHHHHHHHHHHHHH!!!! " + personName);
+            alert("I told you not to do that, I'm coming for you, " + personName + " , AHHHHHHHHHHHHHH!!!! ");
         }
+
         function goDark() {
             document.body.className = "dark";
         }
+
+        function resetMood() {
+            document.body.className = "";
+        }
+
         function finishTheStory() {
-            document.getElementById("story").innerHTML = "it turned out to be a prank that my brother (Aarav) had set up. He jumped out from behind the old furnace, laughing hysterically. I was so relieved, but also a bit annoyed. The basement was just a dusty storage space after all, nothing to be afraid of. But the thrill of the moment was unforgettable. I laughed it off, but I knew I would never look at that basement the same way again. The shadows seemed to linger a little longer, and the creaks of the old house felt a bit more ominous and maybe, just maybe, there is something down there that I just haven't found yet. The basement, once a place of mundane storage, had transformed into a realm of mystery and unease, forever etched in my memory.";
+            document.getElementById("story").innerHTML = "It turned out to be a prank that my brother (Aarav) had set up. He jumped out from behind the old furnace, laughing hysterically. I was so relieved, but also a bit annoyed. The basement was just a dusty storage space after all, nothing to be afraid of. But the thrill of the moment was unforgettable. I laughed it off, but I knew I would never look at that basement the same way again. The shadows seemed to linger a little longer, and the creaks of the old house felt a bit more ominous and maybe, just maybe, there is something down there that I just haven't found yet. The basement, once a place of mundane storage, had transformed into a realm of mystery and unease, forever etched in my memory. THE END... OR IS IT?";
+        }
+
+        function revealSecret() {
+            document.getElementById("secretMessage").innerText = "He screamed for help every night, but the basement walls only echoed laughter—and it wasn’t his."
+            document.getElementById("secretMessage").style.display = "block";
+        }
+
+        function flickerLights() {
+            let flickerCount = 0;
+            const interval = setInterval(() => {
+                document.body.classList.toggle("dark");
+                flickerCount++;
+                if (flickerCount > 6) clearInterval(interval);
+            }, 300);
+        }
+
+        function whisperFromWalls() {
+            const whispers = [
+                ,
+            ];
+            const randomWhisper = whispers[Math.floor(Math.random() * whispers.length)];
+            document.getElementById("whisperMessage").innerText = randomWhisper;
         }
     </script>
 </body>
